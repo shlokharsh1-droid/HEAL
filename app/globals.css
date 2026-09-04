@@ -1,18 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-cream: #fdfcfa;
-  --color-sand: #f5f1ea;
-  --color-teal: #2a7f7c;
-  --color-teal-dark: #1e6360;
-  --color-teal-tint: #e9f2f1;
-  --color-clay: #c4643a;
-  --color-clay-dark: #a8502a;
-  --color-clay-deeper: #8f4322;
-  --color-clay-tint: #f7ece5;
-  --color-ink: #2c2c2a;
-  --color-faint: #6e6a63;
-  --color-line: #e7e1d6;
+  --color-paper: #fcfdfb;
+  --color-sage: #edf3ec;
+  --color-forest: #2f6b4f;
+  --color-forest-dark: #235340;
+  --color-fern: #4a8c68;
+  --color-mist: #e3efe6;
+  --color-ink: #232622;
+  --color-faint: #5f665d;
+  --color-line: #dee5d9;
 
   --font-serif: var(--font-fraunces), Georgia, serif;
   --font-sans: var(--font-inter), system-ui, sans-serif;
@@ -23,7 +20,7 @@ html {
 }
 
 body {
-  background: var(--color-cream);
+  background: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
@@ -48,7 +45,7 @@ details.faq[open] summary .chevron {
 a:focus-visible,
 button:focus-visible,
 summary:focus-visible {
-  outline: 2px solid var(--color-teal);
+  outline: 2px solid var(--color-forest);
   outline-offset: 2px;
   border-radius: 4px;
 }

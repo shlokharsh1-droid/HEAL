@@ -6,50 +6,50 @@ import { orgName } from "@/lib/config";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Health Tech Club is a student-founded health innovation nonprofit from San Jose, CA. Learn how our project teams, mentors, and chapter structure turn students into builders.",
+    "HEAL was founded by high school students in San Jose, California. Learn how our chapters operate, how the national organization supports them, and what distinguishes HEAL from a conventional health club.",
   openGraph: {
     title: `About | ${orgName}`,
     description:
-      "Health Tech Club was founded by students in San Jose, CA. Learn how project teams, mentors, milestones, and an end-of-year showcase make the club actually work.",
+      "Founded by students in San Jose, California. How HEAL chapters operate, and what the national organization provides.",
   },
 };
 
 const typicalClub = [
-  "Weekly lectures and slide presentations",
+  "Weekly presentations and guest lectures",
   "Awareness campaigns and poster drives",
-  "Attendance is the main metric",
-  "Officers plan meetings",
-  "Ends the year with a memory",
+  "Attendance recorded as the primary outcome",
+  "Officers responsible for planning meetings",
+  "The year concludes without a deliverable",
 ];
 
-const usClub = [
-  "Project teams that build, research, and compete",
-  "Real deliverables: apps, papers, programs",
-  "Shipped work is the main metric",
-  "Officers lead teams toward milestones",
-  "Ends the year with a showcase of finished work",
+const healClub = [
+  "Project teams in technology, research, competition, and community health",
+  "Documented outcomes including applications, papers, and programs",
+  "Completed projects recorded as the primary outcome",
+  "Officers responsible for advancing teams toward milestones",
+  "The year concludes with a showcase of finished work",
 ];
 
-const howItWorks = [
+const operations = [
   {
     title: "Project teams",
     description:
-      "Every member joins a small team organized around one problem in one of our four tracks. Teams own their project from the first idea to the finished result.",
+      "Members join small teams organized around a single problem within one focus area. Each team is responsible for its project from the initial question through to the finished result.",
   },
   {
-    title: "Mentors",
+    title: "Mentorship",
     description:
-      "Teams are matched with mentors from our network of researchers, physicians, and graduate students, who review their work and help them get through the hard parts.",
+      "Teams are matched with mentors drawn from our network of researchers, physicians, and graduate students, who review their work and advise them through the more difficult stages of a project.",
   },
   {
     title: "Milestones",
     description:
-      "Projects run on a milestone calendar: scope by fall, prototype or draft by winter, finished work by spring. Deadlines are what separate projects from ideas.",
+      "Projects follow a scheduled calendar. Scope is defined in the fall, a prototype or draft is expected by winter, and completed work is due in the spring. Deadlines are what separate a project from an intention.",
   },
   {
-    title: "End-of-year showcase",
+    title: "Annual showcase",
     description:
-      "Every chapter presents its finished projects to peers, advisors, families, and the wider chapter network at a year-end showcase.",
+      "Each chapter presents its completed projects to members, advisors, families, and the wider chapter network at a showcase held at the end of the academic year.",
   },
 ];
 
@@ -58,56 +58,74 @@ export default function AboutPage() {
     <>
       {/* Mission */}
       <section className="mx-auto max-w-6xl px-5 pb-16 pt-16 sm:px-8 sm:pt-24">
-        <p className="text-sm font-semibold uppercase tracking-wide text-teal-dark">
+        <p className="text-xs font-semibold uppercase tracking-wider text-forest">
           Our mission
         </p>
-        <h1 className="mt-3 max-w-3xl font-serif text-4xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl">
-          Give students the structure, funding, and mentorship to do real work
-          in health while they are still in high school.
+        <h1 className="mt-4 max-w-4xl font-serif text-4xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl">
+          To give students the structure, funding, and mentorship required to
+          contribute to health and medicine while they are still in high
+          school.
         </h1>
       </section>
 
       {/* Founding story */}
-      <section className="border-t border-line bg-sand">
+      <section className="border-t border-line bg-sage">
         <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
-          <div className="grid gap-10 md:grid-cols-2 md:gap-16">
-            <h2 className="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              Founded by students, for students
-            </h2>
+          <div className="grid gap-10 md:grid-cols-[0.85fr_1.15fr] md:gap-16">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wider text-forest">
+                Our origin
+              </p>
+              <h2 className="mt-4 font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+                Founded by students who wanted more from a club
+              </h2>
+            </div>
             <div className="space-y-4 text-base leading-relaxed text-ink/85">
               <p>
                 {orgName} was founded in 2026 by students at Leland High School
-                in San Jose, California, who kept noticing the same thing:
-                schools were full of students who cared about health and
-                medicine, and clubs that gave them nothing real to do about it.
+                in San Jose, California. They kept encountering the same
+                pattern. Their school had no shortage of students interested in
+                health and medicine, and no organization that asked those
+                students to produce anything.
               </p>
               <p>
-                So we built the club we wished existed, one where a sophomore
-                can prototype a medical device, submit a research paper, or run
-                a health program for their community, with a nonprofit behind
-                them providing funding, mentors, and structure. Then we made it
-                something any school can start.
+                So they built the organization they wanted to join, one in
+                which a sophomore could prototype a medical device, prepare a
+                research paper, or deliver a health program for their community
+                with a nonprofit providing the funding, the mentorship, and the
+                structure behind them. The next step was making that model
+                available to any school willing to run it.
+              </p>
+              <p>
+                {orgName} now operates as a national organization built to be
+                started elsewhere. Every element of a chapter, from its
+                governing documents to its project calendar, exists so that a
+                student at another school can open one without repeating the
+                founding work.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* How the club works */}
+      {/* How chapters operate */}
       <section className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
-        <h2 className="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-          How the club actually works
+        <p className="text-xs font-semibold uppercase tracking-wider text-forest">
+          How it works
+        </p>
+        <h2 className="mt-4 font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+          How a chapter operates
         </h2>
         <div className="mt-10 grid gap-5 sm:grid-cols-2">
-          {howItWorks.map((item) => (
+          {operations.map((item) => (
             <div
               key={item.title}
-              className="rounded-lg border border-line bg-white p-6"
+              className="rounded-lg border border-line bg-white p-7"
             >
               <h3 className="font-serif text-xl font-semibold text-ink">
                 {item.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-faint">
+              <p className="mt-2.5 text-sm leading-relaxed text-faint">
                 {item.description}
               </p>
             </div>
@@ -115,16 +133,19 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Compare */}
-      <section className="border-t border-line bg-sand">
+      {/* Comparison */}
+      <section className="border-y border-line bg-sage">
         <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
-          <h2 className="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-            What makes us different
+          <p className="text-xs font-semibold uppercase tracking-wider text-forest">
+            The difference
+          </p>
+          <h2 className="mt-4 font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+            How we differ from a conventional health club
           </h2>
           <div className="mt-10 grid gap-5 md:grid-cols-2">
             <div className="rounded-lg border border-line bg-white p-7">
               <h3 className="font-serif text-xl font-semibold text-faint">
-                A typical health club
+                A conventional health club
               </h3>
               <ul className="mt-5 space-y-3">
                 {typicalClub.map((item) => (
@@ -134,24 +155,24 @@ export default function AboutPage() {
                       aria-hidden
                       className="mt-0.5 shrink-0 text-faint"
                     />
-                    <span className="text-faint">{item}</span>
+                    <span className="leading-relaxed text-faint">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="rounded-lg border-2 border-teal bg-white p-7">
-              <h3 className="font-serif text-xl font-semibold text-teal-dark">
-                {orgName}
+            <div className="rounded-lg border-2 border-forest bg-white p-7">
+              <h3 className="font-serif text-xl font-semibold text-forest">
+                A {orgName} chapter
               </h3>
               <ul className="mt-5 space-y-3">
-                {usClub.map((item) => (
+                {healClub.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm">
                     <Check
                       size={18}
                       aria-hidden
-                      className="mt-0.5 shrink-0 text-teal"
+                      className="mt-0.5 shrink-0 text-forest"
                     />
-                    <span className="text-ink/85">{item}</span>
+                    <span className="leading-relaxed text-ink/85">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -162,35 +183,52 @@ export default function AboutPage() {
 
       {/* Structure */}
       <section className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
-        <div className="grid gap-10 md:grid-cols-2 md:gap-16">
-          <h2 className="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-            How we&rsquo;re structured
-          </h2>
+        <div className="grid gap-10 md:grid-cols-[0.85fr_1.15fr] md:gap-16">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-forest">
+              Structure
+            </p>
+            <h2 className="mt-4 font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+              How the organization is structured
+            </h2>
+          </div>
           <div className="space-y-4 text-base leading-relaxed text-ink/85">
             <p>
-              Local chapters run their own project teams, recruit their own
-              members, and choose their own problems. Chapter leads make the
-              decisions that matter at their school.
+              Local chapters operate their own project teams, recruit their own
+              members, and select the problems they want to address. Chapter
+              leads hold genuine authority over the decisions that affect their
+              school.
             </p>
             <p>
-              The national organization provides what a school club can&rsquo;t
-              build alone: nonprofit infrastructure through our 501(c)(3)
-              fiscal sponsorship, funding for projects and competitions, a
-              mentor network, and the materials to run a chapter well.
+              The national organization provides what an individual school club
+              cannot assemble on its own. That includes nonprofit
+              infrastructure through our 501(c)(3) fiscal sponsorship, funding
+              for projects and competition entry, access to the mentor network,
+              and the documents and training required to operate a chapter
+              well.
+            </p>
+            <p>
+              This division is deliberate. Administrative work belongs to the
+              organization so that students can spend their time on the work
+              they joined to do.
             </p>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="border-t border-line bg-sand">
+      {/* Call to action */}
+      <section className="border-t border-line bg-sage">
         <div className="mx-auto max-w-6xl px-5 py-16 text-center sm:px-8">
           <h2 className="font-serif text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
-            Sound like your kind of club?
+            Interested in founding a chapter?
           </h2>
+          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-faint">
+            We are actively working with students who want to open {orgName} at
+            their school this academic year.
+          </p>
           <Link
             href="/start-a-chapter"
-            className="mt-6 inline-flex items-center gap-2 rounded-md bg-clay-dark px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-clay-deeper"
+            className="mt-7 inline-flex items-center gap-2 rounded-md bg-forest px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-forest-dark"
           >
             Start a Chapter
             <ArrowRight size={18} aria-hidden />

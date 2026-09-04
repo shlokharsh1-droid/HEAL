@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { orgName, tagline, siteUrl } from "@/lib/config";
+import { orgName, siteUrl } from "@/lib/config";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -20,10 +20,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${orgName} | Student-Run Health Innovation Nonprofit`,
+    default: `${orgName} | Student-Led Health Innovation Nonprofit`,
     template: `%s | ${orgName}`,
   },
-  description: `${tagline} ${orgName} is a student-run health innovation nonprofit where members build health technology, conduct research, enter competitions, and run community health programs.`,
+  description:
+    "HEAL is a student-led health innovation nonprofit. Our chapters give high school students the funding, mentorship, and structure to develop health technology, conduct original research, compete in national programs, and deliver community health initiatives.",
   openGraph: {
     siteName: orgName,
     type: "website",

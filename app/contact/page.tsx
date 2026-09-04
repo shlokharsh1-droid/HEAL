@@ -1,89 +1,144 @@
 import type { Metadata } from "next";
-import { Mail, ShieldCheck } from "lucide-react";
-import InstagramIcon from "@/components/InstagramIcon";
-import { orgName, contactEmail, instagramUrl } from "@/lib/config";
+import { Mail, ShieldCheck, GraduationCap, Store } from "lucide-react";
+import { orgName, contactEmail, chapterMailtoHref } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Health Tech Club. Students, advisors, administrators, and sponsors can email us directly, and we answer everything ourselves.",
+    "Contact HEAL by email. We correspond directly with students interested in founding a chapter, faculty advisors, school administrators, and prospective sponsors.",
   openGraph: {
     title: `Contact | ${orgName}`,
     description:
-      "Email us about starting a chapter, sponsoring one, or verifying our nonprofit documentation.",
+      "Write to us about founding a chapter, sponsoring one, or reviewing our nonprofit documentation.",
   },
 };
+
+const audiences = [
+  {
+    icon: GraduationCap,
+    title: "Students",
+    description:
+      "If you are considering opening a chapter at your school, write to us with your name, your school, and a short note about why. We will arrange an introductory call.",
+    subject: "Starting a HEAL Chapter at [My School]",
+  },
+  {
+    icon: Store,
+    title: "Sponsors and donors",
+    description:
+      "If you represent a business or organization interested in supporting a chapter, we will prepare an arrangement suited to your budget and provide documentation for your records.",
+    subject: "Sponsoring a HEAL chapter",
+  },
+];
 
 export default function ContactPage() {
   return (
     <>
-      <section className="mx-auto max-w-6xl px-5 pb-20 pt-16 sm:px-8 sm:pt-24">
-        <p className="text-sm font-semibold uppercase tracking-wide text-teal-dark">
+      {/* Introduction */}
+      <section className="mx-auto max-w-6xl px-5 pb-16 pt-16 sm:px-8 sm:pt-24">
+        <p className="text-xs font-semibold uppercase tracking-wider text-forest">
           Contact
         </p>
-        <h1 className="mt-3 max-w-3xl font-serif text-4xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl">
-          Email us and a real person will answer.
+        <h1 className="mt-4 max-w-3xl font-serif text-4xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl">
+          Write to us directly.
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-faint">
-          Whether you are a student thinking about founding a chapter, an
-          advisor with questions, or a sponsor who wants to help, the best way
-          to reach us is email. We read and answer everything ourselves.
+          Email is the best way to reach {orgName}. Messages are read and
+          answered by the students and directors who operate the organization,
+          and we reply to every one of them.
         </p>
 
-        <div className="mt-10 grid max-w-3xl gap-5 sm:grid-cols-2">
+        <div className="mt-10 max-w-2xl rounded-lg border border-line bg-white p-7">
+          <h2 className="text-xs font-semibold uppercase tracking-wider text-faint">
+            General enquiries
+          </h2>
           <a
             href={`mailto:${contactEmail}`}
-            className="group rounded-lg border border-line bg-white p-6 transition-colors hover:border-teal"
+            className="mt-3 inline-flex items-center gap-2.5 font-serif text-xl font-semibold text-forest hover:text-forest-dark sm:text-2xl"
           >
-            <span className="inline-flex rounded-md bg-teal-tint p-2.5 text-teal-dark">
-              <Mail size={22} aria-hidden />
-            </span>
-            <h2 className="mt-4 font-serif text-lg font-semibold text-ink group-hover:text-teal-dark">
-              Email
-            </h2>
-            <p className="mt-1 text-sm text-faint">{contactEmail}</p>
-          </a>
-          <a
-            href={instagramUrl}
-            className="group rounded-lg border border-line bg-white p-6 transition-colors hover:border-teal"
-          >
-            <span className="inline-flex rounded-md bg-teal-tint p-2.5 text-teal-dark">
-              <InstagramIcon size={22} />
-            </span>
-            <h2 className="mt-4 font-serif text-lg font-semibold text-ink group-hover:text-teal-dark">
-              Instagram
-            </h2>
-            <p className="mt-1 text-sm text-faint">
-              Follow along with chapter projects
-            </p>
+            <Mail size={22} aria-hidden className="shrink-0" />
+            <span className="break-all">{contactEmail}</span>
           </a>
         </div>
       </section>
 
-      <section className="border-t border-line bg-sand">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8">
-          <div className="flex max-w-3xl items-start gap-4">
-            <span className="inline-flex shrink-0 rounded-md bg-teal-tint p-2.5 text-teal-dark">
-              <ShieldCheck size={22} aria-hidden />
-            </span>
-            <div>
-              <h2 className="font-serif text-xl font-semibold text-ink">
-                For school administrators
-              </h2>
-              <p className="mt-2 text-base leading-relaxed text-ink/85">
-                Reviewing a chapter application at your school? Email us and
-                we will be happy to provide our fiscal sponsorship agreement
-                and nonprofit documentation, along with answers to any
-                questions about how chapters operate.
-              </p>
-              <a
-                href={`mailto:${contactEmail}?subject=${encodeURIComponent("Nonprofit documentation request for chapter application review")}`}
-                className="mt-4 inline-block font-semibold text-teal-dark underline underline-offset-2 hover:text-teal"
+      {/* Audiences */}
+      <section className="border-t border-line bg-sage">
+        <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+          <h2 className="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+            Who we hear from
+          </h2>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2">
+            {audiences.map((audience) => (
+              <div
+                key={audience.title}
+                className="rounded-lg border border-line bg-white p-7"
               >
-                {contactEmail}
-              </a>
-            </div>
+                <span className="inline-flex rounded-md bg-mist p-2.5 text-forest">
+                  <audience.icon size={22} aria-hidden />
+                </span>
+                <h3 className="mt-4 font-serif text-xl font-semibold text-ink">
+                  {audience.title}
+                </h3>
+                <p className="mt-2.5 text-sm leading-relaxed text-faint">
+                  {audience.description}
+                </p>
+                <a
+                  href={`mailto:${contactEmail}?subject=${encodeURIComponent(
+                    audience.subject
+                  )}`}
+                  className="mt-4 inline-block text-sm font-semibold text-forest underline underline-offset-2 hover:text-forest-dark"
+                >
+                  Send a message
+                </a>
+              </div>
+            ))}
           </div>
+        </div>
+      </section>
+
+      {/* Administrators */}
+      <section className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+        <div className="flex max-w-3xl items-start gap-5">
+          <span className="inline-flex shrink-0 rounded-md bg-mist p-2.5 text-forest">
+            <ShieldCheck size={22} aria-hidden />
+          </span>
+          <div>
+            <h2 className="font-serif text-2xl font-semibold text-ink">
+              For faculty advisors and school administrators
+            </h2>
+            <p className="mt-3 text-base leading-relaxed text-ink/85">
+              If you are reviewing a chapter application at your school, please
+              write to us. We will provide our fiscal sponsorship agreement,
+              our nonprofit documentation, and a written description of how
+              chapters operate, including supervision, funding, and the
+              responsibilities held by students. We are also available to speak
+              with your administration directly.
+            </p>
+            <a
+              href={`mailto:${contactEmail}?subject=${encodeURIComponent(
+                "Nonprofit documentation request for chapter application review"
+              )}`}
+              className="mt-4 inline-block font-semibold text-forest underline underline-offset-2 hover:text-forest-dark"
+            >
+              Request documentation
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to action */}
+      <section className="border-t border-line bg-sage">
+        <div className="mx-auto max-w-6xl px-5 py-16 text-center sm:px-8">
+          <h2 className="font-serif text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+            Considering a chapter at your school?
+          </h2>
+          <a
+            href={chapterMailtoHref}
+            className="mt-6 inline-flex items-center gap-2 rounded-md bg-forest px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-forest-dark"
+          >
+            <Mail size={18} aria-hidden />
+            Email us to begin
+          </a>
         </div>
       </section>
     </>

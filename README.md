@@ -1,8 +1,9 @@
-# Health Tech Club Website
+# HEAL Website
 
-The public website for Health Tech Club, a student-run health innovation
-nonprofit. Built with Next.js (App Router), TypeScript, and Tailwind CSS.
-Fully static, with no database, no auth, and no environment variables.
+The public website for HEAL, a student-led health innovation nonprofit.
+Built with Next.js (App Router), TypeScript, and Tailwind CSS. The site is
+fully static, with no database, no authentication, and no environment
+variables.
 
 ## Local development
 
@@ -11,9 +12,9 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:3000. Edits hot-reload automatically.
+Open http://localhost:3000. Edits reload automatically.
 
-To check that everything compiles for production:
+To confirm everything compiles for production:
 
 ```bash
 npm run build
@@ -21,63 +22,65 @@ npm run build
 
 ## Editing site content: start with `lib/config.ts`
 
-Every value you'll routinely change lives in **one file**:
+Every value you are likely to change lives in one file:
 [`lib/config.ts`](lib/config.ts)
 
-| Constant | What it is |
+| Constant | What it controls |
 | --- | --- |
-| `contactEmail` | Placeholder `hello@healthtechclub.org`. Replace with your real email. Used in every mailto link, the footer, and the contact page. |
-| `instagramUrl` | Placeholder `"#"`. Replace with your Instagram profile URL. |
-| `donationUrl` | The HCB donation page link. |
-| `siteUrl` | Your production domain, used for Open Graph link previews. Update after deploying. |
-| `STATS` | Chapters / members / projects numbers shown on the home page. |
-| `orgName`, `tagline` | Organization name and hero headline. |
-| `fiscalSponsorshipStatement` | The 501(c)(3) statement shown in the footer and on the Support page. |
+| `orgName` | The organization name shown in the header, footer, and page titles. |
+| `tagline` | The short descriptive line used in metadata. |
+| `contactEmail` | Used in every mailto link, the footer, and the contact page. |
+| `donationUrl` | The HCB donation page link used by the Support page. |
+| `siteUrl` | Your production domain, used for link previews. Update after deploying. |
+| `STATS` | The chapters, members, and projects figures on the home page. |
+| `fiscalSponsorshipStatement` | The 501(c)(3) statement in the footer and on the Support page. |
 
-Page copy lives in each page file under `app/` (e.g. `app/start-a-chapter/page.tsx`).
+Page copy lives in the individual page files under `app/`, for example
+`app/start-a-chapter/page.tsx`.
 
-## Deploying to Vercel (free, ~5 minutes)
+## Deploying to Vercel
 
-1. **Push to GitHub.** Create a new repository at github.com/new, then from
-   this folder:
+1. **Push to GitHub.** From this folder:
 
    ```bash
-   git init
    git add .
-   git commit -m "Health Tech Club website"
-   git branch -M main
-   git remote add origin https://github.com/YOUR_USERNAME/health-tech-club.git
-   git push -u origin main
+   git commit -m "Update site"
+   git push
    ```
 
-2. **Import in Vercel.** Go to [vercel.com/new](https://vercel.com/new),
-   sign in with GitHub, and select the `health-tech-club` repository.
-   Vercel auto-detects Next.js. Don't change any settings, and no
-   environment variables are needed.
+2. **Import in Vercel.** Go to [vercel.com/new](https://vercel.com/new), sign
+   in with GitHub, and select this repository. Vercel detects Next.js
+   automatically. No settings need to be changed and no environment variables
+   are required.
 
-3. **Deploy.** Click **Deploy**. In about a minute you'll have a live URL
-   like `health-tech-club.vercel.app`.
+3. **Deploy.** Click Deploy. The site is live about a minute later.
 
-After that, every `git push` to `main` redeploys automatically. To use a
-custom domain (e.g. `healthtechclub.org`), add it under
-**Project → Settings → Domains** in Vercel, then update `siteUrl` in
-`lib/config.ts` so link previews use the right address.
+Every later push to `main` redeploys the site automatically.
+
+### Changing the site address
+
+The `.vercel.app` address is editable. In Vercel, open the project, go to
+**Settings**, then **Domains**. Edit the existing `.vercel.app` entry to
+choose a different subdomain, or add a custom domain you own. After changing
+it, update `siteUrl` in `lib/config.ts` so that link previews point at the
+correct address.
 
 ## Project structure
 
 ```
 app/
-  layout.tsx            Shared header/footer layout, fonts, default metadata
-  page.tsx              Home
-  about/page.tsx        About
-  tracks/page.tsx       Tracks
-  start-a-chapter/page.tsx  Start a Chapter (the conversion page)
-  support/page.tsx      Support / donate
-  contact/page.tsx      Contact
-  icon.svg              Favicon
+  layout.tsx                Shared header and footer, fonts, default metadata
+  page.tsx                  Home
+  about/page.tsx            About
+  goals/page.tsx            Our Goals, including the four focus areas
+  start-a-chapter/page.tsx  Start a Chapter
+  support/page.tsx          Support and donations
+  contact/page.tsx          Contact
+  globals.css               Colour tokens and base styles
+  icon.svg                  Favicon
 components/
-  Header.tsx            Nav + mobile hamburger menu
-  Footer.tsx            Footer with fiscal sponsorship statement
+  Header.tsx                Navigation and mobile menu
+  Footer.tsx                Footer and fiscal sponsorship statement
 lib/
-  config.ts             ← All editable values
+  config.ts                 All editable values
 ```

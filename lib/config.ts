@@ -3,25 +3,21 @@
  * site picks up the change, with no hunting through components.
  */
 
-export const orgName = "Health Tech Club";
+export const orgName = "HEAL";
 
 export const tagline =
-  "Most clubs end with meetings. We end with something real.";
+  "Students advancing health through technology, research, and service.";
 
-/** Replace with your real contact email. */
-export const contactEmail = "hello@healthtechclub.org";
-
-/** Replace "#" with your Instagram profile URL, e.g. "https://instagram.com/healthtechclub" */
-export const instagramUrl = "#";
+export const contactEmail = "healclubs.international@gmail.com";
 
 export const donationUrl =
   "https://hcb.hackclub.com/donations/start/health-tech-club";
 
 /**
- * Used for Open Graph / link-preview metadata. Replace with your real
- * production domain after you deploy (e.g. "https://healthtechclub.org").
+ * Used for Open Graph link previews. Replace with your production domain
+ * once the site is deployed, for example "https://healclubs.org".
  */
-export const siteUrl = "https://healthtechclub.org";
+export const siteUrl = "https://heal-website.vercel.app";
 
 /** Honest placeholder numbers. Update these as the organization grows. */
 export const STATS = {
@@ -31,10 +27,10 @@ export const STATS = {
 };
 
 export const fiscalSponsorshipStatement =
-  "Health Tech Club is fiscally sponsored by The Hack Foundation (d.b.a. Hack Club), a 501(c)(3) nonprofit, EIN 81-2908499. Donations are tax-deductible to the extent allowed by law.";
+  "HEAL is fiscally sponsored by The Hack Foundation (d.b.a. Hack Club), a 501(c)(3) nonprofit, EIN 81-2908499. Donations are tax-deductible to the extent allowed by law.";
 
 /** Subject line prefilled into the "Start a Chapter" mailto link. */
-export const chapterMailtoSubject = "Starting a Chapter at [My School]";
+export const chapterMailtoSubject = "Starting a HEAL Chapter at [My School]";
 
 export const chapterMailtoHref = `mailto:${contactEmail}?subject=${encodeURIComponent(
   chapterMailtoSubject

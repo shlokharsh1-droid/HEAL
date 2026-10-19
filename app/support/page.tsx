@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import { Cpu, Trophy, Banknote, Printer, Heart, Store } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import PageHero from "@/components/PageHero";
+import Reveal from "@/components/Reveal";
+import { ArtifactStage, LedgerArtifact } from "@/components/Artifacts";
 import {
   orgName,
   donationUrl,
@@ -10,160 +13,155 @@ import {
 export const metadata: Metadata = {
   title: "Support",
   description:
-    "Donations to HEAL fund project materials, competition registration fees, chapter micro-grants, and outreach. Contributions are tax-deductible through our 501(c)(3) fiscal sponsor.",
+    "Donations to HEAL pay for project materials, competition registration, chapter micro-grants, and printing. Contributions are tax-deductible through our 501(c)(3) fiscal sponsor.",
   openGraph: {
     title: `Support | ${orgName}`,
     description:
-      "Contributions fund student project materials, competition fees, and chapter micro-grants. Donations are tax-deductible.",
+      "Where donations to HEAL go, how they are recorded, and how businesses can sponsor a chapter.",
   },
 };
 
 const spending = [
   {
-    icon: Cpu,
     title: "Project materials and hardware",
-    description:
-      "Sensors, electronic components, software licenses, and laboratory supplies requested by student technology and research teams.",
+    body: "Sensors, components, software, and lab supplies requested by technology and research teams.",
   },
   {
-    icon: Trophy,
     title: "Competition registration",
-    description:
-      "Entry fees for science fairs, the Conrad Challenge, HOSA competitive events, BioGENEius, and Synopsys, so that cost never prevents a team from entering.",
+    body: "Entry fees for science fairs, the Conrad Challenge, HOSA, BioGENEius, and Synopsys, so that cost never keeps a team from entering.",
   },
   {
-    icon: Banknote,
     title: "Chapter micro-grants",
-    description:
-      "Small grants that allow new chapters to open and established chapters to take on projects of greater scope than their own fundraising would permit.",
+    body: "Small grants that help new chapters launch and help established chapters take on larger projects.",
   },
   {
-    icon: Printer,
     title: "Printing and outreach",
-    description:
-      "Recruitment materials, event materials, and the printed guides included in every Chapter Launch Kit sent to a new school.",
+    body: "Recruitment materials, event materials, and the printed guides in each Chapter Launch Kit.",
   },
 ];
 
 export default function SupportPage() {
   return (
     <>
-      {/* Introduction */}
-      <section className="mx-auto max-w-6xl px-5 pb-16 pt-16 sm:px-8 sm:pt-24">
-        <p className="text-xs font-semibold uppercase tracking-wider text-forest">
-          Support
-        </p>
-        <h1 className="mt-4 max-w-3xl font-serif text-4xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl">
-          Fund student work in health and medicine.
-        </h1>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-faint">
-          {orgName} operates on modest budgets and completed projects. Your
-          contribution goes directly to the materials, registration fees, and
-          grants that allow student teams to carry a health project through to
-          completion.
-        </p>
+      <PageHero
+        title="Support HEAL"
+        intro={
+          <p>
+            {orgName} runs on a small budget, and nearly all of it goes to the
+            materials, fees, and grants that let student teams finish their
+            projects. A donation of any size helps a chapter take on work it
+            could not otherwise afford.
+          </p>
+        }
+      >
         <a
           href={donationUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-8 inline-flex items-center gap-2 rounded-md bg-forest px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-forest-dark"
+          className="group inline-flex items-center gap-2 rounded-full bg-forest px-7 py-4 text-[1.05rem] font-medium text-white transition-colors hover:bg-forest-dark"
         >
-          <Heart size={18} aria-hidden />
-          Donate
+          Donate to {orgName}
+          <ArrowUpRight
+            size={19}
+            aria-hidden
+            className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+          />
+          <span className="sr-only">(opens in a new tab)</span>
         </a>
-        <p className="mt-3 text-xs text-faint">
-          Secure donation page hosted by HCB, the nonprofit financial platform
-          operated by Hack Club.
+        <p className="mt-4 text-sm text-faint">
+          Donations are processed securely by HCB, the nonprofit finance
+          platform run by Hack Club.
         </p>
-      </section>
+      </PageHero>
 
-      {/* Allocation */}
-      <section className="border-t border-line bg-sage">
-        <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
-          <p className="text-xs font-semibold uppercase tracking-wider text-forest">
-            Allocation
-          </p>
-          <h2 className="mt-4 font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-            Where contributions are spent
-          </h2>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2">
-            {spending.map((item) => (
-              <div
-                key={item.title}
-                className="rounded-lg border border-line bg-white p-6"
-              >
-                <span className="inline-flex rounded-md bg-mist p-2.5 text-forest">
-                  <item.icon size={22} aria-hidden />
-                </span>
-                <h3 className="mt-4 font-serif text-lg font-semibold text-ink">
-                  {item.title}
-                </h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-faint">
-                  {item.description}
-                </p>
-              </div>
-            ))}
+      {/* Where donations go */}
+      <section className="border-t border-line">
+        <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 py-24 sm:px-8 sm:py-32 lg:grid-cols-2 lg:gap-20">
+          <div>
+            <Reveal>
+              <h2 className="display text-[2.6rem] text-ink sm:text-[3.6rem]">
+                Where donations go
+              </h2>
+              <p className="mt-6 text-[1.05rem] leading-relaxed text-faint">
+                Our finances run through HCB, which records every transaction,
+                so each dollar can be traced to the purchase or grant it paid
+                for.
+              </p>
+            </Reveal>
+            <ol className="mt-10 border-t border-line">
+              {spending.map((item, i) => (
+                <Reveal
+                  as="li"
+                  key={item.title}
+                  delay={i * 0.06}
+                  className="grid grid-cols-[2.5rem_1fr] gap-4 border-b border-line py-6"
+                >
+                  <span className="label pt-1.5 text-fern">0{i + 1}</span>
+                  <div>
+                    <h3 className="font-serif text-[1.55rem] leading-tight text-ink">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 leading-relaxed text-faint">{item.body}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </ol>
           </div>
-          <p className="mt-8 max-w-2xl text-sm leading-relaxed text-faint">
-            Our finances are administered through HCB, the nonprofit financial
-            platform operated by Hack Club, which maintains a transparent
-            record of every transaction.
-          </p>
+          <Reveal delay={0.1}>
+            <ArtifactStage className="min-h-[32rem]">
+              <LedgerArtifact />
+            </ArtifactStage>
+          </Reveal>
         </div>
       </section>
 
       {/* Tax deductibility */}
-      <section className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
-        <div className="rounded-lg border-l-4 border-forest bg-mist p-7">
-          <h2 className="font-serif text-xl font-semibold text-ink">
-            Contributions are tax-deductible
-          </h2>
-          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-ink/85">
-            {fiscalSponsorshipStatement}
-          </p>
-          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-ink/85">
-            Donors who require documentation for their records may request our
-            fiscal sponsorship agreement and nonprofit determination materials
-            at any time.
-          </p>
+      <section className="grain border-t border-line bg-cream">
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-24 sm:px-8 sm:py-28 lg:grid-cols-[0.8fr_1.6fr] lg:gap-20">
+          <Reveal>
+            <h2 className="display text-[2.6rem] text-ink sm:text-[3.4rem]">
+              Tax deductibility
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="font-serif text-[1.6rem] leading-snug text-ink sm:text-[1.9rem]">
+              {fiscalSponsorshipStatement}
+            </p>
+            <p className="mt-6 leading-relaxed text-faint">
+              If you need documentation for your records, we can send our fiscal
+              sponsorship agreement and the sponsor&rsquo;s nonprofit
+              determination letter on request.
+            </p>
+          </Reveal>
         </div>
       </section>
 
-      {/* Sponsorship */}
-      <section className="border-t border-line bg-sage">
-        <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
-          <div className="grid gap-10 md:grid-cols-[0.85fr_1.15fr] md:gap-16">
-            <div>
-              <span className="inline-flex rounded-md bg-mist p-2.5 text-forest">
-                <Store size={22} aria-hidden />
-              </span>
-              <h2 className="mt-4 font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-                Sponsor a chapter
-              </h2>
-            </div>
-            <div className="space-y-4 text-base leading-relaxed text-ink/85">
-              <p>
-                Local businesses and organizations can sponsor a chapter in
-                their own community by funding a season of projects, a
-                competition entry, or a community health program. Sponsors are
-                recognized at the chapter&rsquo;s annual showcase and in its
-                printed materials.
-              </p>
-              <p>
-                Write to us at{" "}
-                <a
-                  href={`mailto:${contactEmail}?subject=${encodeURIComponent(
-                    "Sponsoring a HEAL chapter"
-                  )}`}
-                  className="font-semibold text-forest underline underline-offset-2 hover:text-forest-dark"
-                >
-                  {contactEmail}
-                </a>{" "}
-                and we will prepare a sponsorship arrangement suited to your
-                organization and its budget.
-              </p>
-            </div>
-          </div>
+      {/* Sponsor a chapter */}
+      <section className="border-t border-line">
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-24 sm:px-8 sm:py-28 lg:grid-cols-[0.8fr_1.6fr] lg:gap-20">
+          <Reveal>
+            <h2 className="display text-[2.6rem] text-ink sm:text-[3.4rem]">
+              Sponsor a chapter
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="text-[1.1rem] leading-[1.75] text-ink/80">
+              Local businesses and organizations can sponsor a chapter in their
+              own community by funding a season of projects, a competition
+              entry, or a community health program. Sponsors are recognized at
+              the chapter&rsquo;s showcase and in its printed materials, and we
+              will put together an arrangement that fits your budget.
+            </p>
+            <a
+              href={`mailto:${contactEmail}?subject=${encodeURIComponent(
+                "Sponsoring a HEAL chapter"
+              )}`}
+              className="group mt-8 inline-flex items-center gap-2 rounded-full border border-line-strong px-6 py-3.5 font-medium text-ink transition-colors hover:border-forest hover:bg-white hover:text-forest"
+            >
+              Write to us about sponsorship
+              <ArrowUpRight size={18} aria-hidden />
+            </a>
+          </Reveal>
         </div>
       </section>
     </>

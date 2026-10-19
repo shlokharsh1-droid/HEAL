@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
-import { orgName } from "@/lib/config";
+import { ArrowUpRight, Menu, X } from "lucide-react";
+import Logo from "@/components/Logo";
 
 const navLinks = [
   { href: "/about", label: "About" },
@@ -16,55 +16,65 @@ const navLinks = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
+  // The bar is transparent at the top of the page and gains a background once
+  // the visitor scrolls, so the hero reads as one uninterrupted surface.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur-sm">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
-        <Link
-          href="/"
-          className="flex items-center gap-2.5"
-          onClick={() => setOpen(false)}
-        >
-          <span
-            aria-hidden
-            className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-forest font-serif text-sm font-semibold text-paper"
-          >
-            H
-          </span>
-          <span className="font-serif text-lg font-semibold tracking-tight text-ink">
-            {orgName}
-          </span>
+    <header
+      className={`sticky top-0 z-50 transition-colors duration-300 ${
+        scrolled || open
+          ? "border-b border-line bg-paper/90 backdrop-blur-md"
+          : "border-b border-transparent bg-transparent"
+      }`}
+    >
+      <div className="mx-auto flex h-[4.25rem] max-w-7xl items-center justify-between px-5 sm:px-8">
+        <Link href="/" aria-label="HEAL home" onClick={() => setOpen(false)}>
+          <Logo />
         </Link>
 
-        {/* Desktop navigation */}
-        <nav aria-label="Main" className="hidden items-center gap-7 md:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              aria-current={pathname === link.href ? "page" : undefined}
-              className={`text-sm transition-colors hover:text-forest ${
-                pathname === link.href
-                  ? "font-semibold text-forest"
-                  : "text-ink/80"
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
+        <nav aria-label="Main" className="hidden items-center gap-1 md:flex">
+          {navLinks.map((link) => {
+            const active = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={active ? "page" : undefined}
+                className={`rounded-full px-3.5 py-2 text-[0.92rem] transition-colors ${
+                  active
+                    ? "bg-sage font-medium text-forest"
+                    : "text-ink/75 hover:bg-cream hover:text-ink"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
           <Link
             href="/start-a-chapter"
-            className="rounded-md bg-forest px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-forest-dark"
+            className="group ml-3 inline-flex items-center gap-1.5 rounded-full bg-forest py-2 pl-4 pr-3 text-[0.92rem] font-medium text-white transition-colors hover:bg-forest-dark"
           >
             Start a Chapter
+            <ArrowUpRight
+              size={16}
+              aria-hidden
+              className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+            />
           </Link>
         </nav>
 
-        {/* Mobile menu button */}
         <button
           type="button"
-          className="rounded-md p-2 text-ink md:hidden"
+          className="rounded-full p-2.5 text-ink hover:bg-cream md:hidden"
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -74,40 +84,40 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile navigation */}
       {open && (
         <nav
           id="mobile-menu"
           aria-label="Main"
-          className="border-t border-line bg-paper px-5 pb-6 pt-3 md:hidden"
+          className="border-t border-line bg-paper px-5 pb-7 pt-3 md:hidden"
         >
-          <ul className="flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  aria-current={pathname === link.href ? "page" : undefined}
-                  onClick={() => setOpen(false)}
-                  className={`block rounded-md px-3 py-2.5 text-base ${
-                    pathname === link.href
-                      ? "bg-mist font-semibold text-forest-dark"
-                      : "text-ink hover:bg-sage"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-            <li className="mt-3">
-              <Link
-                href="/start-a-chapter"
-                onClick={() => setOpen(false)}
-                className="block rounded-md bg-forest px-4 py-3 text-center text-base font-semibold text-white hover:bg-forest-dark"
-              >
-                Start a Chapter
-              </Link>
-            </li>
+          <ul className="flex flex-col">
+            {navLinks.map((link) => {
+              const active = pathname === link.href;
+              return (
+                <li key={link.href} className="border-b border-line">
+                  <Link
+                    href={link.href}
+                    aria-current={active ? "page" : undefined}
+                    onClick={() => setOpen(false)}
+                    className={`flex items-center justify-between py-4 font-serif text-2xl ${
+                      active ? "text-forest" : "text-ink"
+                    }`}
+                  >
+                    {link.label}
+                    {active && <span className="label text-fern">Current</span>}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
+          <Link
+            href="/start-a-chapter"
+            onClick={() => setOpen(false)}
+            className="mt-6 flex items-center justify-center gap-2 rounded-full bg-forest px-5 py-3.5 font-medium text-white hover:bg-forest-dark"
+          >
+            Start a Chapter
+            <ArrowUpRight size={18} aria-hidden />
+          </Link>
         </nav>
       )}
     </header>

@@ -15,9 +15,9 @@ export const donationUrl =
 
 /**
  * Used for Open Graph link previews. Replace with your production domain
- * once the site is deployed, for example "https://healclubs.org".
+ * for example "https://healclubs.org".
  */
-export const siteUrl = "https://heal-website.vercel.app";
+export const siteUrl = "https://healclubs.org";
 
 /** Honest placeholder numbers. Update these as the organization grows. */
 export const STATS = {
@@ -35,3 +35,9 @@ export const chapterMailtoSubject = "Starting a HEAL Chapter at [My School]";
 export const chapterMailtoHref = `mailto:${contactEmail}?subject=${encodeURIComponent(
   chapterMailtoSubject
 )}`;
+
+/** Shown on the privacy policy and terms of service pages. */
+export const legalLastUpdated = "September 22, 2026";
+
+/** State whose law governs the terms of service. */
+export const governingState = "California";

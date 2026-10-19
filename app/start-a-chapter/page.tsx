@@ -1,288 +1,262 @@
 import type { Metadata } from "next";
-import {
-  Landmark,
-  Banknote,
-  FolderOpen,
-  Users,
-  Network,
-  Award,
-  Mail,
-  ChevronDown,
-} from "lucide-react";
+import { ArrowDown, ArrowUpRight, Check, Plus } from "lucide-react";
+import PageHero from "@/components/PageHero";
+import PulseTimeline from "@/components/PulseTimeline";
+import Reveal from "@/components/Reveal";
 import { orgName, chapterMailtoHref, contactEmail } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Start a Chapter",
   description:
-    "Found a HEAL chapter at your school. Chapters receive 501(c)(3) fiscal sponsorship, project funding, a complete launch kit, access to our mentor network, and the position of Founding Chapter Director.",
+    "Start a HEAL chapter at your school. Chapters receive 501(c)(3) fiscal sponsorship, project funding, a complete launch kit, mentorship for their teams, and a documented leadership role for the founder.",
   openGraph: {
     title: `Start a Chapter | ${orgName}`,
     description:
-      "Nonprofit status, funding, a complete launch kit, professional mentorship, and a national network of chapter leads.",
+      "What HEAL chapters receive, how to start one, and what we ask of chapter leaders.",
   },
 };
 
 const benefits = [
   {
-    icon: Landmark,
-    title: "Nonprofit status from the first day",
-    description:
-      "Your chapter operates under our 501(c)(3) fiscal sponsorship, which means it can accept tax-deductible donations and apply for grants immediately, without incorporating anything or waiting on federal paperwork.",
+    title: "Nonprofit status from the first week",
+    body: "Your chapter operates under our 501(c)(3) fiscal sponsorship, so it can accept tax-deductible donations and apply for grants without incorporating or filing anything with the IRS.",
   },
   {
-    icon: Banknote,
     title: "Funding for projects and competitions",
-    description:
-      "Chapters receive micro-grants for project materials and hardware, and we cover competition registration fees directly, so that cost does not determine which projects a chapter can pursue.",
+    body: "Chapters receive micro-grants for materials and hardware, and we pay competition registration fees directly, so a team's budget does not limit what it can attempt.",
   },
   {
-    icon: FolderOpen,
-    title: "A complete Chapter Launch Kit",
-    description:
-      "The kit includes a chapter constitution, a faculty advisor pitch, recruitment scripts, meeting agendas, and project planning worksheets, which together cover everything required to run a credible first semester.",
+    title: "A complete launch kit",
+    body: "The kit includes a chapter constitution, a pitch for your faculty advisor, recruitment materials, meeting agendas, and project worksheets, which together cover what you need for a strong first semester.",
   },
   {
-    icon: Users,
-    title: "Access to our mentor network",
-    description:
-      "Your project teams are matched with researchers, physicians, and graduate students who review their work, advise on methodology, and help them resolve the problems that stall student projects.",
+    title: "Mentorship for your teams",
+    body: "Your teams are paired with researchers, physicians, and graduate students who review their work, advise on methods, and help them through the parts of a project where students usually get stuck.",
   },
   {
-    icon: Network,
-    title: "A national community of chapter leads",
-    description:
-      "You join a group of student leaders at other schools who share recruitment tactics, project approaches, and solutions to the problems every chapter encounters, along with a network-wide showcase.",
+    title: "Other chapter leaders to learn from",
+    body: "You join a group of student leaders at other schools who share what has worked for recruiting members, running teams, and finishing projects.",
   },
   {
-    icon: Award,
-    title: "A documented leadership record",
-    description:
-      "You hold the position of Founding Chapter Director at your school, and upon graduation we provide a recommendation letter documenting the organization you built and the projects it completed.",
+    title: "A documented leadership role",
+    body: "You hold the title of Founding Chapter Director, and when you graduate we provide a recommendation letter describing the chapter you built and the projects it completed.",
   },
 ];
 
 const steps = [
   {
+    label: "Email",
     title: "Send an introduction",
-    description:
-      "Email us with your name, your school, and why you want to open a chapter there. A short paragraph is sufficient to begin the process.",
+    body: "Email us with your name, your school, and why you want to start a chapter there. A short paragraph is enough to begin.",
   },
   {
-    title: "Introductory call",
-    description:
-      "We schedule a fifteen minute call to discuss your school, your goals, and what a launch involves, and to answer any questions you have about the organization.",
+    label: "Prepare",
+    title: "Receive the launch kit",
+    body: "We send the full Chapter Launch Kit and work with you on recruiting members and approaching a faculty advisor.",
   },
   {
-    title: "Launch kit and training",
-    description:
-      "You receive the complete Chapter Launch Kit along with a working session covering member recruitment and how to approach a prospective faculty advisor.",
-  },
-  {
+    label: "Launch",
     title: "Open your chapter",
-    description:
-      "You hold your first meeting, form project teams, and begin work. We remain closely involved throughout your first full semester of operation.",
+    body: "Hold your first meeting, form project teams, and begin work, with our support throughout your first semester.",
   },
 ];
 
-const expectations = [
-  "A faculty advisor at your school. Most schools require one for club approval, and we provide materials to help you make that request.",
-  "Approximately three to five hours each week to lead meetings and keep project teams progressing toward their milestones.",
-  "A commitment to completing work, including projects delivered, papers submitted, and programs actually held.",
+const requirements = [
+  {
+    title: "A faculty advisor",
+    body: "Most schools require one before approving a club, and the launch kit includes materials to help you ask.",
+  },
+  {
+    title: "Three to five hours a week",
+    body: "Time for running meetings and keeping project teams on schedule through the year.",
+  },
+  {
+    title: "A commitment to finishing",
+    body: "Projects delivered, papers submitted, and programs that take place rather than staying on paper.",
+  },
 ];
 
 const faqs = [
   {
-    q: "Do I need to establish my own nonprofit?",
-    a: "No, and that is the central advantage of joining an existing organization. Your chapter operates under our 501(c)(3) fiscal sponsorship through The Hack Foundation, which allows it to accept tax-deductible donations and apply for grants without incorporating separately or filing for federal recognition.",
+    q: "Do I need to set up my own nonprofit?",
+    a: "No. Your chapter operates under our 501(c)(3) fiscal sponsorship through The Hack Foundation, which lets it accept tax-deductible donations and apply for grants without incorporating separately or applying for federal recognition.",
   },
   {
     q: "What if my school already has a health club?",
-    a: "In most cases this is not an obstacle. Existing health clubs are typically organized around presentations and awareness activities, while HEAL is a project organization, so schools generally recognize the two as distinct activities. During your introductory call we help you position the chapter so that it complements what already exists rather than competing with it.",
+    a: "That is usually not a problem. Most existing health clubs focus on presentations and awareness events, while a HEAL chapter focuses on projects, so schools tend to treat them as separate activities. We can help you describe the chapter in a way that complements the club that already exists.",
   },
   {
-    q: "How much time does leading a chapter require?",
-    a: "Plan on approximately three to five hours each week, spent running meetings, keeping project teams on schedule, and coordinating with the national organization. The commitment is comparable to a varsity sport or a part-time job, and it is recorded that way in your leadership documentation.",
+    q: "How much time does it take?",
+    a: "Plan on about three to five hours a week for running meetings, keeping teams on schedule, and staying in touch with us. The commitment is similar to a varsity sport or a part-time job, and your leadership record reflects that.",
   },
   {
-    q: "Do I need to know how to program?",
-    a: "No. Technology is one of our four focus areas, and the research, competition, and community health areas involve no programming at all. Chapter leads function primarily as organizers, since the role centers on ensuring that teams complete their projects rather than on producing the technical work yourself.",
+    q: "Do I need to know how to code?",
+    a: "No. Technology is one of four focus areas, and research, competition, and community health projects involve no programming. As a chapter leader your main job is organizing teams and helping them finish, so the technical work belongs to the members who choose it.",
   },
   {
     q: "What if my school does not approve the chapter?",
-    a: "Tell us, because administrators generally decline vague proposals rather than organized ones. We supply our fiscal sponsorship agreement, our nonprofit documentation, and a one page advisor pitch, and we are willing to correspond with your administration directly to answer their questions about how chapters operate.",
+    a: "Let us know, since administrators are usually more willing to approve a proposal that arrives organized and documented. We can provide our fiscal sponsorship agreement, our nonprofit documentation, and a one-page advisor pitch, and we are glad to answer questions from your administration directly.",
   },
 ];
 
 export default function StartAChapterPage() {
   return (
     <>
-      {/* Introduction */}
-      <section className="mx-auto max-w-6xl px-5 pb-16 pt-16 sm:px-8 sm:pt-24">
-        <p className="text-xs font-semibold uppercase tracking-wider text-forest">
-          Start a chapter
-        </p>
-        <h1 className="mt-4 max-w-3xl font-serif text-4xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl">
-          Found the {orgName} chapter at your school.
-        </h1>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-faint">
-          Opening a chapter means directing an organization. You recruit a
-          team, manage projects through to completion, and operate with the
-          backing of a national nonprofit. It asks considerably more of a
-          student than most school activities, and that is precisely what makes
-          the position worth holding.
-        </p>
-        <a
-          href={chapterMailtoHref}
-          className="mt-8 inline-flex items-center gap-2 rounded-md bg-forest px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-forest-dark"
-        >
-          <Mail size={18} aria-hidden />
-          Email us to begin
-        </a>
-      </section>
+      <PageHero
+        title="Start a chapter"
+        intro={
+          <p>
+            Founding a chapter means leading an organization at your school,
+            which involves recruiting members, organizing them into project
+            teams, and seeing those projects through to the end of the year. You
+            will have our nonprofit status, funding, and materials behind you,
+            along with people to ask when something goes wrong.
+          </p>
+        }
+      >
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <a
+            href={chapterMailtoHref}
+            className="group inline-flex items-center justify-center gap-2 rounded-full bg-forest px-6 py-3.5 font-medium text-white transition-colors hover:bg-forest-dark"
+          >
+            Email us to begin
+            <ArrowUpRight
+              size={18}
+              aria-hidden
+              className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+            />
+          </a>
+          <a
+            href="#questions"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-line-strong px-6 py-3.5 font-medium text-ink transition-colors hover:border-forest hover:bg-white hover:text-forest"
+          >
+            Common questions
+            <ArrowDown size={17} aria-hidden />
+          </a>
+        </div>
+      </PageHero>
 
       {/* What chapters receive */}
-      <section className="border-t border-line bg-sage">
-        <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
-          <p className="text-xs font-semibold uppercase tracking-wider text-forest">
-            What you receive
-          </p>
-          <h2 className="mt-4 font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-            What the organization provides
-          </h2>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {benefits.map((benefit) => (
-              <div
-                key={benefit.title}
-                className="rounded-lg border border-line bg-white p-6"
-              >
-                <span className="inline-flex rounded-md bg-mist p-2.5 text-forest">
-                  <benefit.icon size={22} aria-hidden />
-                </span>
-                <h3 className="mt-4 font-serif text-lg font-semibold leading-snug text-ink">
-                  {benefit.title}
-                </h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-faint">
-                  {benefit.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Process */}
-      <section className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
-        <p className="text-xs font-semibold uppercase tracking-wider text-forest">
-          The process
-        </p>
-        <h2 className="mt-4 font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-          Four steps from first email to first meeting
-        </h2>
-        <ol className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {steps.map((step, i) => (
-            <li key={step.title} className="flex flex-col">
-              <span
-                aria-hidden
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-forest font-serif text-lg font-semibold text-white"
-              >
-                {i + 1}
-              </span>
-              <h3 className="mt-4 font-serif text-lg font-semibold text-ink">
-                {step.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-faint">
-                {step.description}
-              </p>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      {/* Expectations */}
-      <section className="border-y border-line bg-sage">
-        <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
-          <div className="grid gap-10 md:grid-cols-[0.85fr_1.15fr] md:gap-16">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-forest">
-                Expectations
-              </p>
-              <h2 className="mt-4 font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-                What we ask of chapter leads
+      <section className="border-t border-line">
+        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
+          <div className="grid gap-6 lg:grid-cols-[1.3fr_1fr] lg:items-end">
+            <Reveal>
+              <h2 className="display text-[2.6rem] text-ink sm:text-[3.6rem]">
+                What chapters receive
               </h2>
-            </div>
-            <div className="space-y-5 text-base leading-relaxed text-ink/85">
-              <p>
-                We would rather be direct about this than have a chapter open
-                and stall in November. Founding a chapter is an ongoing
-                responsibility rather than a title to be listed and set aside.
-                Three things are required:
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="text-[1.05rem] leading-relaxed text-faint">
+                Every chapter gets the same support from its first week, so a
+                new founder can focus on recruiting a team rather than on
+                paperwork.
               </p>
-              <ul className="space-y-3">
-                {expectations.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span
-                      aria-hidden
-                      className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-fern"
-                    />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <p>
-                That is a greater commitment than most school organizations ask
-                of anyone, which is exactly why holding the position carries
-                weight.
-              </p>
-            </div>
+            </Reveal>
+          </div>
+          <ol className="mt-14 grid gap-px overflow-hidden rounded-[1.75rem] border border-line bg-line md:grid-cols-2 lg:grid-cols-3">
+            {benefits.map((b, i) => (
+              <Reveal
+                as="li"
+                key={b.title}
+                delay={(i % 3) * 0.06}
+                className="flex flex-col bg-paper p-8 transition-colors hover:bg-white"
+              >
+                <span className="font-serif text-[2.4rem] leading-none text-fern">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-10 font-serif text-[1.6rem] leading-tight text-ink">
+                  {b.title}
+                </h3>
+                <p className="mt-3 leading-relaxed text-faint">{b.body}</p>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section className="grain border-t border-line bg-cream">
+        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
+          <Reveal>
+            <h2 className="display text-[2.6rem] text-ink sm:text-[3.6rem]">
+              How it works
+            </h2>
+          </Reveal>
+          <div className="mt-14">
+            <PulseTimeline phases={steps} />
           </div>
         </div>
       </section>
 
-      {/* Primary call to action */}
-      <section className="mx-auto max-w-6xl px-5 py-20 text-center sm:px-8">
-        <h2 className="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-          Begin the conversation
-        </h2>
-        <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-faint">
-          Send us a short paragraph about yourself and your school, and we will
-          take it from there. We respond to every message personally.
-        </p>
-        <a
-          href={chapterMailtoHref}
-          className="mt-8 inline-flex items-center gap-2 rounded-md bg-forest px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-forest-dark"
-        >
-          <Mail size={18} aria-hidden />
-          {contactEmail}
-        </a>
-        <p className="mt-3 text-xs text-faint">
-          The subject line is prefilled. Replace the bracketed text with your
-          school&rsquo;s name.
-        </p>
+      {/* What we ask */}
+      <section className="border-t border-line">
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-24 sm:px-8 sm:py-32 lg:grid-cols-2 lg:gap-20">
+          <Reveal>
+            <h2 className="display text-[2.6rem] text-ink sm:text-[3.6rem]">
+              What we ask of chapter leaders
+            </h2>
+            <p className="mt-7 text-[1.08rem] leading-relaxed text-faint">
+              We would rather be clear about the commitment now than have a
+              chapter open and stall halfway through the fall. Leading a chapter
+              takes more than most clubs ask of their officers, and that is also
+              why the role carries weight with the people who read about it
+              later.
+            </p>
+          </Reveal>
+          <ul className="space-y-4">
+            {requirements.map((r, i) => (
+              <Reveal
+                as="li"
+                key={r.title}
+                delay={i * 0.08}
+                className="flex gap-5 rounded-2xl border border-line bg-white p-6"
+              >
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sage text-forest">
+                  <Check size={17} aria-hidden />
+                </span>
+                <div>
+                  <h3 className="font-serif text-[1.5rem] leading-tight text-ink">
+                    {r.title}
+                  </h3>
+                  <p className="mt-1.5 leading-relaxed text-faint">{r.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
       </section>
 
-      {/* Frequently asked questions */}
-      <section className="border-t border-line bg-sage">
-        <div className="mx-auto max-w-3xl px-5 py-20 sm:px-8">
-          <h2 className="text-center font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-            Frequently asked questions
-          </h2>
-          <div className="mt-10 space-y-3">
-            {faqs.map((faq) => (
-              <details
-                key={faq.q}
-                className="faq rounded-lg border border-line bg-white"
+      {/* Questions */}
+      <section
+        id="questions"
+        className="grain scroll-mt-16 border-t border-line bg-cream"
+      >
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-24 sm:px-8 sm:py-32 lg:grid-cols-[0.8fr_1.6fr] lg:gap-20">
+          <Reveal className="lg:sticky lg:top-28 lg:self-start">
+            <h2 className="display text-[2.6rem] text-ink sm:text-[3.6rem]">
+              Common questions
+            </h2>
+            <p className="mt-6 leading-relaxed text-faint">
+              Anything not answered here can go to{" "}
+              <a
+                href={`mailto:${contactEmail}`}
+                className="break-all text-forest underline decoration-forest/30 underline-offset-4 hover:decoration-forest"
               >
-                <summary className="flex items-center justify-between gap-4 p-5 font-semibold text-ink">
+                {contactEmail}
+              </a>
+              .
+            </p>
+          </Reveal>
+          <div className="divide-y divide-line-strong/30 border-y border-line-strong/30">
+            {faqs.map((faq) => (
+              <details key={faq.q} className="faq group">
+                <summary className="flex items-center justify-between gap-6 py-6 font-serif text-[1.5rem] leading-snug text-ink transition-colors hover:text-forest">
                   {faq.q}
-                  <ChevronDown
-                    size={18}
-                    aria-hidden
-                    className="chevron shrink-0 text-faint"
-                  />
+                  <span className="chevron flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-line-strong text-forest">
+                    <Plus size={16} aria-hidden />
+                  </span>
                 </summary>
-                <p className="px-5 pb-5 text-sm leading-relaxed text-faint">
-                  {faq.a}
-                </p>
+                <p className="max-w-2xl pb-7 leading-relaxed text-faint">{faq.a}</p>
               </details>
             ))}
           </div>

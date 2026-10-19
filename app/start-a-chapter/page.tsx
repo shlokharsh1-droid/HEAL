@@ -67,8 +67,8 @@ const requirements = [
     body: "Most schools require one before approving a club, and the launch kit includes materials to help you ask.",
   },
   {
-    title: "Three to five hours a week",
-    body: "Time for running meetings and keeping project teams on schedule through the year.",
+    title: "One to two hours a week",
+    body: "Enough time to run a meeting and check in with your project teams.",
   },
   {
     title: "A commitment to finishing",
@@ -87,7 +87,7 @@ const faqs = [
   },
   {
     q: "How much time does it take?",
-    a: "Plan on about three to five hours a week for running meetings, keeping teams on schedule, and staying in touch with us. The commitment is similar to a varsity sport or a part-time job, and your leadership record reflects that.",
+    a: "Plan on about one to two hours a week, which is usually enough to run a meeting, check in with your project teams, and stay in touch with us. The launch kit includes meeting agendas and project worksheets, so you are not building everything from scratch, and the role fits comfortably alongside your other activities.",
   },
   {
     q: "Do I need to know how to code?",
@@ -196,11 +196,10 @@ export default function StartAChapterPage() {
               What we ask of chapter leaders
             </h2>
             <p className="mt-7 text-[1.08rem] leading-relaxed text-faint">
-              We would rather be clear about the commitment now than have a
-              chapter open and stall halfway through the fall. Leading a chapter
-              takes more than most clubs ask of their officers, and that is also
-              why the role carries weight with the people who read about it
-              later.
+              Leading a chapter fits alongside a normal school schedule, and it
+              works best when a few things are in place from the beginning. We
+              would rather be clear about them now so that your chapter gets off
+              to a good start.
             </p>
           </Reveal>
           <ul className="space-y-4">

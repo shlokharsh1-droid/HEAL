@@ -253,9 +253,10 @@ export default function HomePage() {
             </h2>
             <p className="mt-7 max-w-lg text-[1.08rem] leading-relaxed text-on-night-faint">
               Founding a chapter means recruiting a team, keeping its projects on
-              schedule, and working with a faculty advisor at your school. It is
-              more responsibility than most clubs ask for, so we give founders
-              the support listed here from the start.
+              schedule, and working with a faculty advisor at your school. It
+              takes about one to two hours a week, and we give founders the
+              support listed here from the start so that their time goes toward
+              their teams rather than paperwork.
             </p>
             <Link
               href="/start-a-chapter"

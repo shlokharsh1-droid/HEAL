@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
@@ -19,20 +20,24 @@ export const metadata: Metadata = {
 const audiences = [
   {
     title: "Students",
-    body: "If you are thinking about starting a chapter, tell us your name, your school, and a little about why you are interested. We will reply with the next steps.",
-    subject: "Starting a HEAL Chapter at [My School]",
-    action: "Write about a chapter",
+    body: "If you are thinking about starting a chapter, the short chapter application is the best place to begin. It takes about five minutes, and we reply to every applicant by email.",
+    href: "/apply",
+    action: "Apply to start a chapter",
   },
   {
     title: "Advisors and administrators",
     body: "If you are reviewing a chapter proposal, we can send our fiscal sponsorship agreement, our nonprofit documentation, and a description of how chapters are supervised and funded. We are also glad to speak with your administration.",
-    subject: "Documentation request for a HEAL chapter proposal",
+    href: `mailto:${contactEmail}?subject=${encodeURIComponent(
+      "Documentation request for a HEAL chapter proposal"
+    )}`,
     action: "Request documentation",
   },
   {
     title: "Sponsors and donors",
     body: "If your business or organization would like to support a chapter, we will put together an arrangement that fits your budget and provide documentation for your records.",
-    subject: "Sponsoring a HEAL chapter",
+    href: `mailto:${contactEmail}?subject=${encodeURIComponent(
+      "Sponsoring a HEAL chapter"
+    )}`,
     action: "Write about sponsorship",
   },
 ];
@@ -58,7 +63,7 @@ export default function ContactPage() {
                 <h2 className="label text-fern">Email</h2>
                 <a
                   href={`mailto:${contactEmail}`}
-                  className="mt-4 block break-all font-serif text-[1.9rem] leading-tight text-ink transition-colors hover:text-forest sm:text-[3rem]"
+                  className="mt-4 block break-all font-display font-medium text-[1.61rem] leading-tight text-ink transition-colors hover:text-forest sm:text-[2.55rem]"
                 >
                   {contactEmail}
                 </a>
@@ -74,12 +79,12 @@ export default function ContactPage() {
                 delay={i * 0.08}
                 className="flex flex-col rounded-[1.75rem] border border-line bg-white p-8"
               >
-                <h2 className="font-serif text-[1.8rem] leading-tight text-ink">
+                <h2 className="font-display font-medium text-[1.53rem] leading-tight text-ink">
                   {a.title}
                 </h2>
                 <p className="mt-4 flex-1 leading-relaxed text-faint">{a.body}</p>
-                <a
-                  href={`mailto:${contactEmail}?subject=${encodeURIComponent(a.subject)}`}
+                <Link
+                  href={a.href}
                   className="group mt-8 inline-flex items-center gap-2 font-medium text-forest"
                 >
                   {a.action}
@@ -88,7 +93,7 @@ export default function ContactPage() {
                     aria-hidden
                     className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                   />
-                </a>
+                </Link>
               </Reveal>
             ))}
           </div>

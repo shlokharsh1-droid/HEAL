@@ -72,7 +72,7 @@ export default function PulseTimeline({ phases }: { phases: Phase[] }) {
             <p className="label text-fern">
               {String(i + 1).padStart(2, "0")} · {phase.label}
             </p>
-            <h3 className="mt-3 font-serif text-[1.65rem] leading-tight text-ink">
+            <h3 className="mt-3 font-display font-medium text-[1.4rem] leading-tight text-ink">
               {phase.title}
             </h3>
             <p className="mt-3 text-[0.98rem] leading-relaxed text-faint">

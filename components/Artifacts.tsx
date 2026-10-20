@@ -26,7 +26,7 @@ export function AppArtifact() {
         </div>
         <div className="px-5 pb-5 pt-4">
           <p className="label text-[0.6rem] text-faint">Tuesday</p>
-          <p className="mt-1 font-serif text-[1.7rem] leading-none text-ink">
+          <p className="mt-1 font-display font-medium text-[1.44rem] leading-none text-ink">
             Today&rsquo;s doses
           </p>
           <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-sage">
@@ -74,7 +74,7 @@ export function PaperArtifact() {
         <p className="label text-[0.58rem] text-faint">Manuscript · Draft 3</p>
         <FileText size={14} aria-hidden className="text-faint" />
       </div>
-      <p className="mt-4 font-serif text-[1.2rem] leading-snug text-ink">
+      <p className="mt-4 font-display font-medium text-[1.02rem] leading-snug text-ink">
         Sleep duration and perceived stress among high school students: a
         cross-sectional survey
       </p>
@@ -106,7 +106,7 @@ export function CompetitionArtifact() {
     <div className={`w-[17rem] -rotate-[1.5deg] rounded-2xl border border-line bg-white ${shadow}`}>
       <div className="rounded-t-2xl bg-forest px-5 py-4 text-on-night">
         <p className="label text-[0.58rem] text-on-night-faint">Competition entry</p>
-        <p className="mt-1.5 font-serif text-[1.2rem] leading-snug">
+        <p className="mt-1.5 font-display font-medium text-[1.02rem] leading-snug">
           Measuring hand tremor with a phone&rsquo;s motion sensor
         </p>
       </div>
@@ -147,7 +147,7 @@ export function ProgramArtifact() {
   return (
     <div className={`w-[17rem] rotate-[1deg] rounded-2xl border border-line bg-paper p-5 ${shadow}`}>
       <p className="label text-[0.58rem] text-faint">Community program</p>
-      <p className="mt-1.5 font-serif text-[1.25rem] leading-snug text-ink">
+      <p className="mt-1.5 font-display font-medium text-[1.06rem] leading-snug text-ink">
         Health literacy workshops
       </p>
       <p className="mt-1 text-[0.66rem] text-faint">With a partner public library</p>
@@ -213,7 +213,7 @@ export function LedgerArtifact() {
       <div className="flex items-center justify-between border-b border-line px-5 py-4">
         <div>
           <p className="label text-[0.58rem] text-faint">Transactions</p>
-          <p className="mt-1 font-serif text-[1.3rem] leading-none text-ink">
+          <p className="mt-1 font-display font-medium text-[1.1rem] leading-none text-ink">
             Chapter account
           </p>
         </div>

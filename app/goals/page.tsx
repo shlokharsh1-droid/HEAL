@@ -135,7 +135,7 @@ export default function GoalsPage() {
         <div className="mx-auto grid max-w-7xl gap-12 px-5 py-24 sm:px-8 sm:py-32 lg:grid-cols-[0.8fr_1.6fr] lg:gap-20">
           <div className="lg:sticky lg:top-28 lg:self-start">
             <Reveal>
-              <h2 className="display text-[2.6rem] text-ink sm:text-[3.4rem]">
+              <h2 className="display text-[2.21rem] text-ink sm:text-[2.89rem]">
                 Five goals
               </h2>
             </Reveal>
@@ -147,11 +147,11 @@ export default function GoalsPage() {
                 key={goal.title}
                 className="grid gap-4 border-t border-line py-10 first:border-t-0 first:pt-0 sm:grid-cols-[4.5rem_1fr]"
               >
-                <span className="font-serif text-[3.2rem] leading-none text-fern">
+                <span className="font-display font-medium text-[2.72rem] leading-none text-fern">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div>
-                  <h3 className="font-serif text-[1.9rem] leading-tight text-ink">
+                  <h3 className="font-display font-medium text-[1.61rem] leading-tight text-ink">
                     {goal.title}
                   </h3>
                   <p className="mt-4 text-[1.05rem] leading-relaxed text-faint">
@@ -168,7 +168,7 @@ export default function GoalsPage() {
       <section className="grain border-t border-line bg-cream">
         <div className="mx-auto max-w-7xl px-5 pt-24 sm:px-8 sm:pt-32">
           <Reveal>
-            <h2 className="display max-w-4xl text-[2.6rem] text-ink sm:text-[3.6rem]">
+            <h2 className="display max-w-4xl text-[2.21rem] text-ink sm:text-[3.06rem]">
               Focus areas
             </h2>
             <p className="mt-7 max-w-2xl text-[1.08rem] leading-relaxed text-faint">
@@ -199,10 +199,10 @@ export default function GoalsPage() {
                   <p className="label text-fern">
                     0{i + 1} · Focus area
                   </p>
-                  <h3 className="display mt-4 text-[2.6rem] text-ink sm:text-[3.2rem]">
+                  <h3 className="display mt-4 text-[2.21rem] text-ink sm:text-[2.72rem]">
                     {area.name}
                   </h3>
-                  <p className="mt-4 font-serif text-[1.45rem] leading-snug text-ink/85">
+                  <p className="mt-4 font-display text-[1.25rem] leading-snug text-ink/85">
                     {area.lede}
                   </p>
                   <p className="mt-5 leading-relaxed text-faint">{area.body}</p>
@@ -232,7 +232,7 @@ export default function GoalsPage() {
         <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
           <div className="grid gap-8 lg:grid-cols-[1.3fr_1fr] lg:items-end">
             <Reveal>
-              <h2 className="display text-[2.6rem] text-ink sm:text-[3.6rem]">
+              <h2 className="display text-[2.21rem] text-ink sm:text-[3.06rem]">
                 How we measure progress
               </h2>
             </Reveal>
@@ -248,7 +248,7 @@ export default function GoalsPage() {
             {measures.map((m, i) => (
               <Reveal key={m.name} delay={i * 0.06} className="bg-paper p-7">
                 <p className="label text-fern">0{i + 1}</p>
-                <dt className="mt-8 font-serif text-[1.65rem] leading-tight text-ink">
+                <dt className="mt-8 font-display font-medium text-[1.4rem] leading-tight text-ink">
                   {m.name}
                 </dt>
                 <dd className="mt-3 text-[0.97rem] leading-relaxed text-faint">

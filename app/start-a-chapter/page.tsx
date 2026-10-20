@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ArrowDown, ArrowUpRight, Check, Plus } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import PulseTimeline from "@/components/PulseTimeline";
 import Reveal from "@/components/Reveal";
-import { orgName, chapterMailtoHref, contactEmail } from "@/lib/config";
+import { orgName, contactEmail } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Start a Chapter",
@@ -45,9 +46,9 @@ const benefits = [
 
 const steps = [
   {
-    label: "Email",
-    title: "Send an introduction",
-    body: "Email us with your name, your school, and why you want to start a chapter there. A short paragraph is enough to begin.",
+    label: "Apply",
+    title: "Submit an application",
+    body: "Fill out the short chapter application, which asks about you, your school, and why you want to start a chapter there. It takes about five minutes.",
   },
   {
     label: "Prepare",
@@ -115,17 +116,17 @@ export default function StartAChapterPage() {
         }
       >
         <div className="flex flex-col gap-3 sm:flex-row">
-          <a
-            href={chapterMailtoHref}
+          <Link
+            href="/apply"
             className="group inline-flex items-center justify-center gap-2 rounded-full bg-forest px-6 py-3.5 font-medium text-white transition-colors hover:bg-forest-dark"
           >
-            Email us to begin
+            Apply to start a chapter
             <ArrowUpRight
               size={18}
               aria-hidden
               className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
             />
-          </a>
+          </Link>
           <a
             href="#questions"
             className="inline-flex items-center justify-center gap-2 rounded-full border border-line-strong px-6 py-3.5 font-medium text-ink transition-colors hover:border-forest hover:bg-white hover:text-forest"
@@ -141,7 +142,7 @@ export default function StartAChapterPage() {
         <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
           <div className="grid gap-6 lg:grid-cols-[1.3fr_1fr] lg:items-end">
             <Reveal>
-              <h2 className="display text-[2.6rem] text-ink sm:text-[3.6rem]">
+              <h2 className="display text-[2.21rem] text-ink sm:text-[3.06rem]">
                 What chapters receive
               </h2>
             </Reveal>
@@ -161,10 +162,10 @@ export default function StartAChapterPage() {
                 delay={(i % 3) * 0.06}
                 className="flex flex-col bg-paper p-8 transition-colors hover:bg-white"
               >
-                <span className="font-serif text-[2.4rem] leading-none text-fern">
+                <span className="font-display font-medium text-[2.04rem] leading-none text-fern">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mt-10 font-serif text-[1.6rem] leading-tight text-ink">
+                <h3 className="mt-10 font-display font-medium text-[1.36rem] leading-tight text-ink">
                   {b.title}
                 </h3>
                 <p className="mt-3 leading-relaxed text-faint">{b.body}</p>
@@ -178,7 +179,7 @@ export default function StartAChapterPage() {
       <section className="grain border-t border-line bg-cream">
         <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
           <Reveal>
-            <h2 className="display text-[2.6rem] text-ink sm:text-[3.6rem]">
+            <h2 className="display text-[2.21rem] text-ink sm:text-[3.06rem]">
               How it works
             </h2>
           </Reveal>
@@ -192,7 +193,7 @@ export default function StartAChapterPage() {
       <section className="border-t border-line">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 py-24 sm:px-8 sm:py-32 lg:grid-cols-2 lg:gap-20">
           <Reveal>
-            <h2 className="display text-[2.6rem] text-ink sm:text-[3.6rem]">
+            <h2 className="display text-[2.21rem] text-ink sm:text-[3.06rem]">
               What we ask of chapter leaders
             </h2>
             <p className="mt-7 text-[1.08rem] leading-relaxed text-faint">
@@ -214,7 +215,7 @@ export default function StartAChapterPage() {
                   <Check size={17} aria-hidden />
                 </span>
                 <div>
-                  <h3 className="font-serif text-[1.5rem] leading-tight text-ink">
+                  <h3 className="font-display font-medium text-[1.27rem] leading-tight text-ink">
                     {r.title}
                   </h3>
                   <p className="mt-1.5 leading-relaxed text-faint">{r.body}</p>
@@ -232,7 +233,7 @@ export default function StartAChapterPage() {
       >
         <div className="mx-auto grid max-w-7xl gap-12 px-5 py-24 sm:px-8 sm:py-32 lg:grid-cols-[0.8fr_1.6fr] lg:gap-20">
           <Reveal className="lg:sticky lg:top-28 lg:self-start">
-            <h2 className="display text-[2.6rem] text-ink sm:text-[3.6rem]">
+            <h2 className="display text-[2.21rem] text-ink sm:text-[3.06rem]">
               Common questions
             </h2>
             <p className="mt-6 leading-relaxed text-faint">
@@ -249,7 +250,7 @@ export default function StartAChapterPage() {
           <div className="divide-y divide-line-strong/30 border-y border-line-strong/30">
             {faqs.map((faq) => (
               <details key={faq.q} className="faq group">
-                <summary className="flex items-center justify-between gap-6 py-6 font-serif text-[1.5rem] leading-snug text-ink transition-colors hover:text-forest">
+                <summary className="flex items-center justify-between gap-6 py-6 font-display font-medium text-[1.27rem] leading-snug text-ink transition-colors hover:text-forest">
                   {faq.q}
                   <span className="chevron flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-line-strong text-forest">
                     <Plus size={16} aria-hidden />

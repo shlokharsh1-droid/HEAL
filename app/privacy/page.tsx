@@ -20,6 +20,7 @@ const sections = [
   { id: "what-we-collect", title: "What this website collects" },
   { id: "server-logs", title: "Information recorded by our host" },
   { id: "email", title: "Information you send us by email" },
+  { id: "applications", title: "Chapter applications" },
   { id: "donations", title: "Donations" },
   { id: "providers", title: "Service providers we rely on" },
   { id: "students", title: "Students, minors, and children under 13" },
@@ -38,7 +39,7 @@ export default function PrivacyPage() {
         <p className="label text-fern">
           Legal
         </p>
-        <h1 className="display mt-5 text-[3rem] text-ink sm:text-[4.4rem]">
+        <h1 className="display mt-5 text-[2.55rem] text-ink sm:text-[3.74rem]">
           Privacy Policy
         </h1>
         <p className="mt-4 text-sm text-faint">
@@ -46,15 +47,15 @@ export default function PrivacyPage() {
         </p>
 
         <div className="mt-8 rounded-[1.5rem] bg-sage p-7 sm:p-9">
-          <h2 className="font-serif text-[1.7rem] leading-tight text-ink">
+          <h2 className="font-display font-medium text-[1.44rem] leading-tight text-ink">
             The short version
           </h2>
           <p className="mt-3 text-base leading-relaxed text-ink/85">
-            This website does not use cookies, does not run analytics, and does
-            not ask you for any information. There are no forms and no
-            accounts. The only personal information {orgName} holds is what you
-            choose to send us in an email, and we use it solely to reply to you
-            and to operate our chapter program.
+            This website does not use cookies, does not run analytics, and has
+            no accounts. The only personal information {orgName} holds is what
+            you choose to send us, either through our chapter application or by
+            email, and we use it solely to reply to you and to operate our
+            chapter program.
           </p>
         </div>
 
@@ -90,7 +91,7 @@ export default function PrivacyPage() {
               "We set no cookies of any kind, including no advertising or tracking cookies.",
               "We run no analytics or measurement software, so your visits are not counted, profiled, or attributed to you.",
               "We store nothing in your browser, including no local storage, session storage, or similar technology.",
-              "There are no contact forms, no sign-up fields, and no accounts, so there is nothing for you to submit.",
+              "The only form on this site is the optional chapter application, and nothing you type into it is sent anywhere until you choose to submit it. There are no accounts or sign-up fields.",
               "Our fonts are served from this website itself rather than from a third-party font service, so viewing a page sends no request to an outside company.",
             ].map((item) => (
               <li key={item} className="flex items-start gap-3">
@@ -130,7 +131,8 @@ export default function PrivacyPage() {
 
         <LegalSection id="email" title="Information you send us by email">
           <p>
-            Every contact point on this site is an email link. When you write to
+            Apart from the chapter application, every contact point on this
+            site is an email link. When you write to
             us, we receive whatever you choose to include, which is typically
             your name, your email address, your school, and the content of your
             message.
@@ -159,6 +161,29 @@ export default function PrivacyPage() {
             you first, and we do not share your message with anyone outside{" "}
             {orgName} except where this policy says otherwise or where the law
             requires it.
+          </p>
+        </LegalSection>
+
+        <LegalSection id="applications" title="Chapter applications">
+          <p>
+            If you apply to start a chapter, the application asks for your name,
+            email address, school, city and state or country, grade, whether you
+            have a faculty advisor, and why you want to start a chapter. It also
+            asks, optionally, which focus areas interest you and how you heard
+            about {orgName}.
+          </p>
+          <p>
+            Submitted applications are stored in a Google Form and its connected
+            spreadsheet, which only {orgName} directors can access. We use them
+            to review your application, to reply to you, and, if your chapter
+            opens, to support it. We do not sell application information or
+            share it outside {orgName}, except with your school&rsquo;s faculty
+            advisor or administration when that is needed to open your chapter.
+          </p>
+          <p>
+            If the application is not connected to our form at the time you
+            apply, submitting it opens your own email app with your answers
+            filled in, and nothing is sent until you choose to send that email.
           </p>
         </LegalSection>
 
@@ -201,7 +226,10 @@ export default function PrivacyPage() {
               <tbody>
                 {[
                   ["Vercel", "Hosts this website and records standard server logs."],
-                  ["Google", "Hosts our email account and stores messages you send us."],
+                  [
+                    "Google",
+                    "Hosts our email account and the form that stores chapter applications.",
+                  ],
                   [
                     "The Hack Foundation (Hack Club) and HCB",
                     "Our fiscal sponsor, which receives and administers donations.",

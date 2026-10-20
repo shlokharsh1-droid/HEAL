@@ -3,7 +3,6 @@ import { ArrowUpRight } from "lucide-react";
 import Logo from "@/components/Logo";
 import {
   contactEmail,
-  chapterMailtoHref,
   fiscalSponsorshipStatement,
   orgName,
 } from "@/lib/config";
@@ -40,26 +39,26 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-5 pb-16 pt-20 sm:px-8 sm:pt-28">
         <div className="grid gap-14 lg:grid-cols-[1.4fr_1fr]">
           <div>
-            <h2 className="display max-w-2xl text-[2.6rem] text-ink sm:text-[3.6rem]">
+            <h2 className="display max-w-2xl text-[2.21rem] text-ink sm:text-[3.06rem]">
               Start a chapter
             </h2>
             <p className="mt-6 max-w-xl text-[1.05rem] leading-relaxed text-faint">
-              If you would like to start a chapter, write to us with your name,
-              your school, and a few sentences about why, and we will reply with
-              the next steps and the materials to get started.
+              If you would like to start a chapter at your school, fill out the
+              short application and we will reply by email with the next steps
+              and the materials to get started.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <a
-                href={chapterMailtoHref}
+              <Link
+                href="/apply"
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-forest px-6 py-3.5 font-medium text-white transition-colors hover:bg-forest-dark"
               >
-                Email us about a chapter
+                Apply to start a chapter
                 <ArrowUpRight
                   size={18}
                   aria-hidden
                   className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                 />
-              </a>
+              </Link>
               <a
                 href={`mailto:${contactEmail}`}
                 className="break-all px-2 text-[0.95rem] text-forest underline decoration-forest/30 underline-offset-4 hover:decoration-forest"
@@ -93,7 +92,7 @@ export default function Footer() {
 
       {/* Oversized wordmark with the heartbeat running through it */}
       <div aria-hidden className="relative mx-auto max-w-7xl select-none px-5 sm:px-8">
-        <p className="whitespace-nowrap font-serif text-[calc((100vw-2.5rem)*0.555)] leading-[0.78] tracking-[-0.02em] text-forest/[0.09] sm:text-[calc((100vw-4rem)*0.555)] xl:text-[42rem]">
+        <p className="whitespace-nowrap font-display text-[calc((100vw-2.5rem)*0.42)] font-semibold leading-[0.8] tracking-[-0.06em] text-forest/[0.08] sm:text-[calc((100vw-4rem)*0.42)] xl:text-[31.9rem]">
           HEAL
         </p>
         <svg

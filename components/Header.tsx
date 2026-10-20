@@ -99,7 +99,7 @@ export default function Header() {
                     href={link.href}
                     aria-current={active ? "page" : undefined}
                     onClick={() => setOpen(false)}
-                    className={`flex items-center justify-between py-4 font-serif text-2xl ${
+                    className={`flex items-center justify-between py-4 font-display font-medium text-2xl ${
                       active ? "text-forest" : "text-ink"
                     }`}
                   >

@@ -22,10 +22,11 @@
   --color-faint: #565f58;
   --color-line: #dbe1d4;
   --color-line-strong: #7a8577;
+  --color-alert: #9b2c1f;
 
-  --font-serif: var(--font-instrument-serif), Georgia, serif;
-  --font-sans: var(--font-instrument-sans), system-ui, sans-serif;
-  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+  --font-display: var(--font-geist), system-ui, sans-serif;
+  --font-sans: var(--font-geist), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -46,6 +47,15 @@
   }
 }
 
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.02em;
+  }
+}
+
 body {
   background: var(--color-paper);
   color: var(--color-ink);
@@ -54,12 +64,12 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Display headings use the serif with tight optical spacing */
+/* Large headings: semibold Geist with tight tracking */
 .display {
-  font-family: var(--font-serif);
-  font-weight: 400;
-  letter-spacing: -0.015em;
-  line-height: 1.02;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.04;
 }
 .display em {
   font-style: italic;

@@ -31,7 +31,7 @@ export default function Logo({ tone = "dark" }: { tone?: "dark" | "light" }) {
     <span className="flex items-center gap-2.5">
       <PulseMark tone={tone} />
       <span
-        className={`font-serif text-[1.7rem] leading-none tracking-[0.04em] ${
+        className={`font-display text-[1.32rem] font-semibold leading-none tracking-[-0.03em] ${
           tone === "dark" ? "text-ink" : "text-on-night"
         }`}
       >

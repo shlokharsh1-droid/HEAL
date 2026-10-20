@@ -32,11 +32,51 @@ Every value you are likely to change lives in one file:
 | `contactEmail` | Used in every mailto link, the footer, and the contact page. |
 | `donationUrl` | The HCB donation page link used by the Support page. |
 | `siteUrl` | Your production domain, used for link previews. Update after deploying. |
-| `STATS` | The chapters, members, and projects figures on the home page. |
+| `STATS` | Chapter, member, and project counts. Not shown on the site yet. |
 | `fiscalSponsorshipStatement` | The 501(c)(3) statement in the footer and on the Support page. |
+| `applicationForm` | Where chapter applications are sent. See "Chapter applications" below. |
 
 Page copy lives in the individual page files under `app/`, for example
 `app/start-a-chapter/page.tsx`.
+
+## Chapter applications
+
+The application at `/apply` works in two modes, controlled by
+`applicationForm` in `lib/config.ts`:
+
+- **Not connected (the default).** Submitting opens the applicant's email app
+  with their answers filled in, addressed to `contactEmail`.
+- **Connected to a Google Form.** Submissions go straight into the form, and
+  you can read them in Google Forms or its linked Google Sheet.
+
+### Connecting a Google Form
+
+1. Create a new Google Form with these questions, in any order. The option
+   text must match exactly, or Google will drop the answer.
+
+   | Question | Type | Options |
+   | --- | --- | --- |
+   | Full name | Short answer | |
+   | Email | Short answer | |
+   | School | Short answer | |
+   | City and state or country | Short answer | |
+   | Grade | Multiple choice | `9th grade`, `10th grade`, `11th grade`, `12th grade` |
+   | Faculty advisor | Multiple choice | `Yes, a teacher has agreed`, `I have someone in mind but have not asked yet`, `Not yet` |
+   | Why do you want to start a chapter? | Paragraph | |
+   | Focus areas | Checkboxes | `Technology`, `Research`, `Competition`, `Community health` |
+   | How did you hear about HEAL? | Short answer | |
+
+2. In the form's **Settings**, turn off "Collect email addresses" and make sure
+   the form does not require signing in to Google.
+3. Click the three-dot menu, choose **Get pre-filled link**, type any answer
+   into every question (tick every checkbox), and click **Get link**.
+4. The copied link contains one `entry.NUMBER=` per question. Put each
+   `entry.NUMBER` into the matching slot in `applicationForm.entries`.
+5. Set `googleFormAction` to the form's URL with `/viewform...` replaced by
+   `/formResponse`, for example
+   `https://docs.google.com/forms/d/e/FORM_ID/formResponse`.
+6. Click **Responses → Link to Sheets** in the form to read applications in a
+   spreadsheet.
 
 ## Deploying to Vercel
 
@@ -73,6 +113,7 @@ app/
   page.tsx                  Home
   about/page.tsx            About
   goals/page.tsx            Our Goals, including the four focus areas
+  apply/page.tsx            Chapter application
   start-a-chapter/page.tsx  Start a Chapter
   support/page.tsx          Support and donations
   contact/page.tsx          Contact

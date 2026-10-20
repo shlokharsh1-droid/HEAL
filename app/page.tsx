@@ -124,7 +124,7 @@ export default function HomePage() {
           </div>
           <div>
             <Reveal>
-              <p className="font-serif text-[2rem] leading-[1.15] text-ink sm:text-[2.7rem]">
+              <p className="font-display text-[1.7rem] leading-[1.3] tracking-[-0.025em] text-ink sm:text-[2.2rem]">
                 {orgName} is a student-led nonprofit that helps high school
                 students start chapters at their schools, where members work in
                 teams on projects in health technology, research, competition,
@@ -161,7 +161,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
           <div className="grid gap-6 lg:grid-cols-[1.3fr_1fr] lg:items-end">
             <Reveal>
-              <h2 className="display text-[2.6rem] text-ink sm:text-[3.6rem]">
+              <h2 className="display text-[2.21rem] text-ink sm:text-[3.06rem]">
                 What members make
               </h2>
             </Reveal>
@@ -185,7 +185,7 @@ export default function HomePage() {
                   <div className="mt-5 flex gap-5 px-1">
                     <span className="label pt-1.5 text-fern">0{i + 1}</span>
                     <div>
-                      <h3 className="font-serif text-[1.8rem] leading-none text-ink">
+                      <h3 className="font-display font-medium text-[1.53rem] leading-none text-ink">
                         {area.name}
                       </h3>
                       <p className="mt-2.5 max-w-md leading-relaxed text-faint">
@@ -219,7 +219,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
           <div className="grid gap-6 lg:grid-cols-[1.3fr_1fr] lg:items-end">
             <Reveal>
-              <h2 className="display text-[2.6rem] text-ink sm:text-[3.6rem]">
+              <h2 className="display text-[2.21rem] text-ink sm:text-[3.06rem]">
                 A chapter year
               </h2>
             </Reveal>
@@ -248,7 +248,7 @@ export default function HomePage() {
       >
         <div className="mx-auto grid max-w-7xl gap-16 px-5 py-24 sm:px-8 sm:py-32 lg:grid-cols-2">
           <Reveal className="lg:sticky lg:top-28 lg:self-start">
-            <h2 className="display text-[2.6rem] sm:text-[3.6rem]">
+            <h2 className="display text-[2.21rem] sm:text-[3.06rem]">
               Starting a chapter
             </h2>
             <p className="mt-7 max-w-lg text-[1.08rem] leading-relaxed text-on-night-faint">
@@ -281,7 +281,7 @@ export default function HomePage() {
               >
                 <span className="label pt-1.5 text-leaf">0{i + 1}</span>
                 <div>
-                  <h3 className="font-serif text-[1.55rem] leading-tight text-on-night">
+                  <h3 className="font-display font-medium text-[1.32rem] leading-tight text-on-night">
                     {item.title}
                   </h3>
                   <p className="mt-2 leading-relaxed text-on-night-faint">{item.body}</p>

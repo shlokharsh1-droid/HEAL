@@ -102,7 +102,7 @@ export default function AboutPage() {
           </div>
           <div>
             <Reveal>
-              <p className="font-serif text-[2rem] leading-[1.15] text-ink sm:text-[2.6rem]">
+              <p className="font-display text-[1.7rem] leading-[1.3] tracking-[-0.025em] text-ink sm:text-[2.2rem]">
                 {orgName} began in 2026 as one club at Leland High School in San
                 Jose, started by students who wanted the time they spent on
                 health to add up to something by the end of the year.
@@ -141,7 +141,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
           <div className="grid gap-8 lg:grid-cols-[1.3fr_1fr] lg:items-end">
             <Reveal>
-              <h2 className="display text-[2.6rem] text-ink sm:text-[3.6rem]">
+              <h2 className="display text-[2.21rem] text-ink sm:text-[3.06rem]">
                 How a chapter works
               </h2>
             </Reveal>
@@ -161,11 +161,11 @@ export default function AboutPage() {
                 delay={(i % 2) * 0.08}
                 className="grid grid-cols-[3.5rem_1fr] border-t border-line-strong/40 py-9"
               >
-                <span className="font-serif text-[2.6rem] leading-none text-fern">
+                <span className="font-display font-medium text-[2.21rem] leading-none text-fern">
                   {i + 1}
                 </span>
                 <div>
-                  <h3 className="font-serif text-[1.8rem] leading-tight text-ink">
+                  <h3 className="font-display font-medium text-[1.53rem] leading-tight text-ink">
                     {part.title}
                   </h3>
                   <p className="mt-3 leading-relaxed text-faint">{part.body}</p>
@@ -180,7 +180,7 @@ export default function AboutPage() {
       <section className="border-t border-line">
         <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
           <Reveal>
-            <h2 className="display max-w-4xl text-[2.6rem] text-ink sm:text-[3.6rem]">
+            <h2 className="display max-w-4xl text-[2.21rem] text-ink sm:text-[3.06rem]">
               How we differ from a typical health club
             </h2>
             <p className="mt-7 max-w-2xl text-[1.08rem] leading-relaxed text-faint">
@@ -218,7 +218,7 @@ export default function AboutPage() {
                   <tr key={row.aspect}>
                     <th
                       scope="row"
-                      className="border-t border-line py-6 pr-6 align-top font-serif text-[1.35rem] font-normal leading-tight text-ink"
+                      className="border-t border-line py-6 pr-6 align-top font-display text-[1.15rem] font-medium leading-tight text-ink"
                     >
                       {row.aspect}
                     </th>
@@ -244,7 +244,7 @@ export default function AboutPage() {
       <section className="grain border-t border-line bg-cream">
         <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
           <Reveal>
-            <h2 className="display max-w-4xl text-[2.6rem] text-ink sm:text-[3.6rem]">
+            <h2 className="display max-w-4xl text-[2.21rem] text-ink sm:text-[3.06rem]">
               How the work is divided
             </h2>
             <p className="mt-7 max-w-2xl text-[1.08rem] leading-relaxed text-faint">
@@ -269,7 +269,7 @@ export default function AboutPage() {
                   }`}
                 >
                   <h3
-                    className={`font-serif text-[2rem] leading-tight ${
+                    className={`font-display font-medium text-[1.7rem] leading-tight ${
                       panel.dark ? "text-on-night" : "text-ink"
                     }`}
                   >

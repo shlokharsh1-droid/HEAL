@@ -29,15 +29,34 @@ export const STATS = {
 export const fiscalSponsorshipStatement =
   "HEAL is fiscally sponsored by The Hack Foundation (d.b.a. Hack Club), a 501(c)(3) nonprofit, EIN 81-2908499. Donations are tax-deductible to the extent allowed by law.";
 
-/** Subject line prefilled into the "Start a Chapter" mailto link. */
-export const chapterMailtoSubject = "Starting a HEAL Chapter at [My School]";
-
-export const chapterMailtoHref = `mailto:${contactEmail}?subject=${encodeURIComponent(
-  chapterMailtoSubject
-)}`;
+/**
+ * Chapter applications submitted at /apply.
+ *
+ * While googleFormAction is empty, submitting the application opens the
+ * applicant's email app with their answers filled in, addressed to
+ * contactEmail. To collect applications in a Google Sheet instead, create a
+ * Google Form with the questions listed in the README, then paste its
+ * response URL and entry IDs below.
+ */
+export const applicationForm = {
+  /** Looks like https://docs.google.com/forms/d/e/FORM_ID/formResponse */
+  googleFormAction: "",
+  /** Each value looks like "entry.123456789" */
+  entries: {
+    name: "",
+    email: "",
+    school: "",
+    location: "",
+    grade: "",
+    advisor: "",
+    motivation: "",
+    areas: "",
+    referral: "",
+  },
+};
 
 /** Shown on the privacy policy and terms of service pages. */
-export const legalLastUpdated = "September 22, 2026";
+export const legalLastUpdated = "October 19, 2026";
 
 /** State whose law governs the terms of service. */
 export const governingState = "California";

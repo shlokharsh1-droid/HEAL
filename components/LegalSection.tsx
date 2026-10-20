@@ -16,7 +16,7 @@ export default function LegalSection({
     <section aria-labelledby={id} className="scroll-mt-24">
       <h2
         id={id}
-        className="font-serif text-[1.9rem] leading-tight text-ink"
+        className="font-display font-medium text-[1.61rem] leading-tight text-ink"
       >
         {title}
       </h2>

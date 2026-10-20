@@ -79,7 +79,7 @@ export default function SupportPage() {
         <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 py-24 sm:px-8 sm:py-32 lg:grid-cols-2 lg:gap-20">
           <div>
             <Reveal>
-              <h2 className="display text-[2.6rem] text-ink sm:text-[3.6rem]">
+              <h2 className="display text-[2.21rem] text-ink sm:text-[3.06rem]">
                 Where donations go
               </h2>
               <p className="mt-6 text-[1.05rem] leading-relaxed text-faint">
@@ -98,7 +98,7 @@ export default function SupportPage() {
                 >
                   <span className="label pt-1.5 text-fern">0{i + 1}</span>
                   <div>
-                    <h3 className="font-serif text-[1.55rem] leading-tight text-ink">
+                    <h3 className="font-display font-medium text-[1.32rem] leading-tight text-ink">
                       {item.title}
                     </h3>
                     <p className="mt-2 leading-relaxed text-faint">{item.body}</p>
@@ -119,12 +119,12 @@ export default function SupportPage() {
       <section className="grain border-t border-line bg-cream">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-24 sm:px-8 sm:py-28 lg:grid-cols-[0.8fr_1.6fr] lg:gap-20">
           <Reveal>
-            <h2 className="display text-[2.6rem] text-ink sm:text-[3.4rem]">
+            <h2 className="display text-[2.21rem] text-ink sm:text-[2.89rem]">
               Tax deductibility
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="font-serif text-[1.6rem] leading-snug text-ink sm:text-[1.9rem]">
+            <p className="font-display text-[1.4rem] leading-snug text-ink sm:text-[1.65rem]">
               {fiscalSponsorshipStatement}
             </p>
             <p className="mt-6 leading-relaxed text-faint">
@@ -140,7 +140,7 @@ export default function SupportPage() {
       <section className="border-t border-line">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-24 sm:px-8 sm:py-28 lg:grid-cols-[0.8fr_1.6fr] lg:gap-20">
           <Reveal>
-            <h2 className="display text-[2.6rem] text-ink sm:text-[3.4rem]">
+            <h2 className="display text-[2.21rem] text-ink sm:text-[2.89rem]">
               Sponsor a chapter
             </h2>
           </Reveal>

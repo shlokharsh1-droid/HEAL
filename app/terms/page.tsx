@@ -47,7 +47,7 @@ export default function TermsPage() {
         <p className="label text-fern">
           Legal
         </p>
-        <h1 className="display mt-5 text-[3rem] text-ink sm:text-[4.4rem]">
+        <h1 className="display mt-5 text-[2.55rem] text-ink sm:text-[3.74rem]">
           Terms of Service
         </h1>
         <p className="mt-4 text-sm text-faint">
@@ -55,7 +55,7 @@ export default function TermsPage() {
         </p>
 
         <div className="mt-8 rounded-[1.5rem] bg-sage p-7 sm:p-9">
-          <h2 className="font-serif text-[1.7rem] leading-tight text-ink">
+          <h2 className="font-display font-medium text-[1.44rem] leading-tight text-ink">
             The short version
           </h2>
           <p className="mt-3 text-base leading-relaxed text-ink/85">
